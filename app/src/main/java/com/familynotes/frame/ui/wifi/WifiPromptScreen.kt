@@ -6,14 +6,19 @@ import androidx.compose.material.icons.filled.Wifi
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import io.sentry.compose.SentryModifier.sentryTag
+import io.sentry.compose.SentryTraced
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun WifiPromptScreen(
     modifier: Modifier = Modifier,
     onOpenWifiSettings: () -> Unit
 ) {
+    SentryTraced("wifi_prompt_screen") {
     Box(
         modifier = modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
@@ -43,11 +48,14 @@ fun WifiPromptScreen(
 
             Button(
                 onClick = onOpenWifiSettings,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .sentryTag("button_open_wifi_settings")
             ) {
                 Text("Open WiFi Settings")
             }
         }
+    }
     }
 }
 

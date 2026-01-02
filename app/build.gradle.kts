@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.compose.compiler)
+    id("io.sentry.android.gradle") version "5.12.2"
 }
 
 android {
@@ -79,5 +80,9 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+
+    // Sentry
+    implementation(libs.sentry.android)
+    implementation(libs.sentry.compose.android)
 }
 
