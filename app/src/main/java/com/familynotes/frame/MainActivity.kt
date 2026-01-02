@@ -15,6 +15,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
@@ -33,6 +34,9 @@ class MainActivity : ComponentActivity() {
     val isConnected: StateFlow<Boolean> = _isConnected
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // Install the splash screen - must be called before super.onCreate()
+        installSplashScreen()
+
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setupKioskMode()

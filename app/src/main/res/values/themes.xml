@@ -2,4 +2,16 @@
 <resources>
 
     <style name="Theme.FamilyNotes" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <!-- Splash Screen Theme -->
+    <style name="Theme.FamilyNotes.Splash" parent="Theme.SplashScreen">
+        <!-- Background color -->
+        <item name="windowSplashScreenBackground">@color/brand_background</item>
+        <!-- App logo/icon -->
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+        <!-- Icon background color (optional, for circular icon) -->
+        <item name="windowSplashScreenIconBackgroundColor">@color/brand_background</item>
+        <!-- Post splash screen theme -->
+        <item name="postSplashScreenTheme">@style/Theme.FamilyNotes</item>
+    </style>
 </resources>

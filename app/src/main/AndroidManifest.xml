@@ -18,7 +18,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.FamilyNotes"
+            android:theme="@style/Theme.FamilyNotes.Splash"
             android:lockTaskMode="if_whitelisted"
             android:keepScreenOn="true"
             android:configChanges="orientation|keyboardHidden|screenSize">
