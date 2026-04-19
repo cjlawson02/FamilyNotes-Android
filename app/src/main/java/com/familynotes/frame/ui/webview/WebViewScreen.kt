@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LifecycleEventEffect
+import com.familynotes.frame.BuildConfig
 
 @SuppressLint("SetJavaScriptEnabled")
 @Composable
@@ -39,7 +40,7 @@ fun WebViewScreen(
     Box(modifier = modifier.fillMaxSize()) {
         AndroidView(
             factory = { context ->
-                WebView.setWebContentsDebuggingEnabled(true)
+                WebView.setWebContentsDebuggingEnabled(BuildConfig.DEBUG)
                 WebView(context).apply {
                     webView = this
                     layoutParams = ViewGroup.LayoutParams(

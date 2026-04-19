@@ -45,6 +45,7 @@ android {
     }
     // Add this buildFeatures block
     buildFeatures {
+        buildConfig = true
         compose = true
         dataBinding = true
     }

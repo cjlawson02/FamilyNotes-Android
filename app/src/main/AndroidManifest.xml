@@ -34,61 +34,53 @@
             android:name="io.sentry.dsn"
             android:value="https://bea6932cbd3951257b2fcb41cd906a76@o4509121428193280.ingest.us.sentry.io/4510640032972800"
         />
-        <!-- Add data like request headers, user ip address and device name, see
-        https://docs.sentry.io/platforms/android/data-management/data-collected/ for more info -->
+        <!-- Kiosk/shared device: limit PII and crash attachments that could capture on-screen notes -->
         <meta-data
             android:name="io.sentry.send-default-pii"
-            android:value="true"
+            android:value="false"
         />
-        <!-- enable automatic breadcrumbs for user interactions (clicks, swipes, scrolls) -->
         <meta-data
             android:name="io.sentry.traces.user-interaction.enable"
-            android:value="true"
+            android:value="false"
         />
         <meta-data
             android:name="io.sentry.breadcrumbs.user-interaction"
-            android:value="true"
+            android:value="false"
         />
-        <!-- enable screenshot for crashes -->
         <meta-data
             android:name="io.sentry.attach-screenshot"
-            android:value="true"
+            android:value="false"
         />
-        <!-- enable view hierarchy for crashes -->
         <meta-data
             android:name="io.sentry.attach-view-hierarchy"
-            android:value="true"
+            android:value="false"
         />
-        <!-- enable the performance API by setting a sample-rate, adjust in production env -->
+        <!-- Lower trace volume for cost; still enough for latency/error correlation -->
         <meta-data
             android:name="io.sentry.traces.sample-rate"
-            android:value="1.0"
+            android:value="0.1"
         />
-        <!-- Enable UI profiling, adjust in production env. This is evaluated only once per session -->
+        <!-- Profiling off by default (0); enable in a build flavor if investigating perf -->
         <meta-data
             android:name="io.sentry.traces.profiling.session-sample-rate"
-            android:value="1.0"
+            android:value="0"
         />
-        <!-- Set profiling mode. For more info see
-        https://docs.sentry.io/platforms/android/profiling/#enabling-ui-profiling -->
         <meta-data
             android:name="io.sentry.traces.profiling.lifecycle"
             android:value="trace"
         />
-        <!-- Enable profiling on app start. The app start profile will be stopped automatically when
-        the app start root span finishes -->
         <meta-data
             android:name="io.sentry.traces.profiling.start-on-app-start"
-            android:value="true"
+            android:value="false"
         />
-        <!-- record session replays for 100% of errors and 10% of sessions -->
+        <!-- Session replay captures screen: no ambient sampling; subset of errors only -->
         <meta-data
             android:name="io.sentry.session-replay.on-error-sample-rate"
-            android:value="1.0"
+            android:value="0.2"
         />
         <meta-data
             android:name="io.sentry.session-replay.session-sample-rate"
-            android:value="0.1"
+            android:value="0"
         />
     </application>
 
