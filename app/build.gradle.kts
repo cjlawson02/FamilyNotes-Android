@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.compose.compiler)
-    id("io.sentry.android.gradle") version "5.12.2"
+    id("io.sentry.android.gradle") version "6.25.0"
 }
 
 android {
