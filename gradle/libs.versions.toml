@@ -11,7 +11,7 @@ lifecycleRuntimeKtx = "2.10.0"
 material = "1.14.0"
 constraintlayout = "2.2.2"
 recyclerview = "1.4.0"
-sentry = "8.29.0"
+sentry = "8.62.0"
 
 [libraries]
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activityCompose" }
